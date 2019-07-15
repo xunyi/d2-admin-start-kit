@@ -12,19 +12,29 @@ process.env.VUE_APP_BUILD_TIME = require('dayjs')().format('YYYY-M-D HH:mm:ss')
 let publicPath = '/'
 
 module.exports = {
-  publicPath, // 根据你的实际情况更改这里
+  // 根据你的实际情况更改这里
+  publicPath,
+
   lintOnSave: true,
+
   devServer: {
     publicPath // 和 publicPath 保持一致
   },
+
   css: {
     loaderOptions: {
-      // 设置 scss 公用变量文件
       sass: {
-        data: `@import '~@/assets/style/public.scss';`
+        data: '@import \'~@/assets/style/public.scss\';'
+      },
+      stylus: {
+        'resolve url': true,
+        'import': [
+          './src/mobile/theme'
+        ]
       }
     }
   },
+
   // 默认设置: https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-service/lib/config/base.js
   chainWebpack: config => {
     /**
@@ -98,12 +108,51 @@ module.exports = {
     // 重新设置 alias
     config.resolve.alias
       .set('@api', resolve('src/api'))
+      .set('@pc', resolve('src/pc'))
+      .set('@mobile', resolve('src/mobile'))
     // 判断环境加入模拟数据
-    const entry = config.entry('app')
+    const entry = config.entry('pc')
     if (process.env.VUE_APP_BUILD_MODE !== 'nomock') {
       entry
         .add('@/mock')
         .end()
+    }
+  },
+
+  pages: {
+    pc: {
+      // page 的入口
+      entry: 'src/pc/main.js',
+      // 模板来源
+      template: 'public/pc/index.html',
+      // 在 dist/index.html 的输出
+      filename: 'pc/index.html'
+      // 当使用 title 选项时，
+      // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
+      // title: 'Index Page'
+      // 在这个页面中包含的块，默认情况下会包含
+      // 提取出来的通用 chunk 和 vendor chunk。
+      // chunks: ['chunk-vendors', 'chunk-common', 'index']
+    },
+    mobile: {
+      // page 的入口
+      entry: 'src/mobile/main.js',
+      // 模板来源
+      template: 'public/mobile/index.html',
+      // 在 dist/index.html 的输出
+      filename: 'mobile/index.html'
+    }
+    // 当使用只有入口的字符串格式时，
+    // 模板会被推导为 `public/subpage.html`
+    // 并且如果找不到的话，就回退到 `public/index.html`。
+    // 输出文件名会被推导为 `subpage.html`。
+    // subpage: 'src/subpage/main.js'
+  },
+
+  pluginOptions: {
+    'cube-ui': {
+      postCompile: true,
+      theme: true
     }
   }
 }
