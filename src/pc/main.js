@@ -3,6 +3,8 @@ import Vue from 'vue'
 import App from './App'
 // 核心插件
 import d2Admin from '@pc/plugin/d2admin'
+// [ 可选组件 ] UEditor
+import VueUeditorWrap from 'vue-ueditor-wrap'
 // store
 import store from '@pc/store/index'
 // 多国语
@@ -16,6 +18,7 @@ import { frameInRoutes } from '@pc/router/routes'
 
 // 核心插件
 Vue.use(d2Admin)
+Vue.component('VueUeditorWrap', VueUeditorWrap)
 
 new Vue({
   router,

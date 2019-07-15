@@ -55,6 +55,9 @@
             <el-option label="区域二" value="beijing"></el-option>
           </el-select>
         </el-form-item>
+        <el-form-item label="活动名称" prop="msg">
+          <d2-ueditor v-model="ruleForm.msg"/>
+        </el-form-item>
         <el-form-item label="活动时间" required>
           <el-col :span="11">
             <el-form-item prop="date1">
@@ -118,7 +121,8 @@ export default {
         delivery: false,
         type: [],
         resource: '',
-        desc: ''
+        desc: '',
+        msg: ''
       },
       rules: {
         name: [
