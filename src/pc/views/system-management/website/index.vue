@@ -10,3 +10,7 @@ export default {
   name: 'website-management'
 }
 </script>
+
+<style lang="scss">
+
+</style>

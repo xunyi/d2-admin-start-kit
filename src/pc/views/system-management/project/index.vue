@@ -247,5 +247,6 @@ export default {
 }
 .custom-pagination {
   margin: 20px;
+  text-align: center;
 }
 </style>
