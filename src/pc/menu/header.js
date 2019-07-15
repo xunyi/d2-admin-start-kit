@@ -9,5 +9,14 @@ export default [
       { path: '/page2', title: '页面 2' },
       { path: '/page3', title: '页面 3' }
     ]
+  },
+  {
+    title: '系统管理',
+    icon: 'folder-o',
+    children: [
+      { path: '/project-management', title: '项目管理' },
+      { path: '/base-management', title: '基地管理' },
+      { path: '/website-management', title: '网站管理' }
+    ]
   }
 ]

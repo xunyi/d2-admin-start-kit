@@ -49,6 +49,33 @@ const frameIn = [
         },
         component: _import('demo/page3')
       },
+      {
+        path: 'project-management',
+        name: 'project-management',
+        meta: {
+          auth: true,
+          title: '项目管理'
+        },
+        component: _import('system-management/project')
+      },
+      {
+        path: 'base-management',
+        name: 'base-management',
+        meta: {
+          auth: true,
+          title: '基地管理'
+        },
+        component: _import('system-management/base')
+      },
+      {
+        path: 'website-management',
+        name: 'website-management',
+        meta: {
+          auth: true,
+          title: '网站管理'
+        },
+        component: _import('system-management/website')
+      },
       // 系统 前端日志
       {
         path: 'log',
