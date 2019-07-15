@@ -76,6 +76,15 @@ const frameIn = [
         },
         component: _import('system-management/website')
       },
+      {
+        path: 'practice-overview',
+        name: 'practice-overview',
+        meta: {
+          auth: true,
+          title: '实践概况'
+        },
+        component: _import('data-statistics/practice-overview')
+      },
       // 系统 前端日志
       {
         path: 'log',

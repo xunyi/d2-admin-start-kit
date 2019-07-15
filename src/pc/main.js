@@ -5,6 +5,8 @@ import App from './App'
 import d2Admin from '@pc/plugin/d2admin'
 // [ 可选组件 ] UEditor
 import VueUeditorWrap from 'vue-ueditor-wrap'
+// [ 可选组件 ] 图表
+import VCharts from 'v-charts'
 // store
 import store from '@pc/store/index'
 // 多国语
@@ -19,6 +21,7 @@ import { frameInRoutes } from '@pc/router/routes'
 // 核心插件
 Vue.use(d2Admin)
 Vue.component('VueUeditorWrap', VueUeditorWrap)
+Vue.use(VCharts)
 
 new Vue({
   router,

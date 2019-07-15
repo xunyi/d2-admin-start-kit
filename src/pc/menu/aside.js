@@ -18,5 +18,12 @@ export default [
       { path: '/base-management', title: '基地管理' },
       { path: '/website-management', title: '网站管理' }
     ]
+  },
+  {
+    title: '数据统计',
+    icon: 'folder-o',
+    children: [
+      { path: 'practice-overview', title: '实践概况' }
+    ]
   }
 ]
