@@ -9,7 +9,8 @@
     "build:travis": "vue-cli-service build --mode travis",
     "dev": "npm run serve",
     "start": "npm run serve",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "qiniu-server": "node src/plugin/uploader/server.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -51,6 +52,7 @@
     "babel-jest": "^23.6.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "qiniu": "^7.2.2",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.5",
